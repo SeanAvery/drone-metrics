@@ -1,8 +1,8 @@
 {
   "name": "dji-server",
   "version": "0.0.1",
-  "description": "send and retrieve your drone dat",
-  "main": "index.js",
+  "description": "send and retrieve your drone data",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,12 +18,13 @@
     "js"
   ],
   "author": "Sean Pollock",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SeanAvery/drone-metrics/issues"
   },
   "homepage": "https://github.com/SeanAvery/drone-metrics#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.3"
   },
   "devDependencies": {
