@@ -1,10 +1,12 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 const serverPort = 3344
 
 const app = express()
+app.use(bodyParser.json())
 
 app.post('/append', (req, res) => {
-  console.log('received data', req)
+  console.log('received data', req.body)
   res.end('yooo, it worked')
 })
 
