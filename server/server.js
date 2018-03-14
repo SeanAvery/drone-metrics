@@ -39,7 +39,6 @@ const append = (key, value) => {
   })
 }
 
-
 /*
   UTILS
 */
