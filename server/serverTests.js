@@ -1,20 +1,36 @@
 import rp from 'request-promise'
 
-const postOptions = {
-  method: 'POST',
-  uri :  'http://localhost:3344/append',
-  body: {
-    0: {
-      gps: 0,
-      meta: 'look at this data point'
-    }
-  },
-  json: true
+const newTripOptions = {
+  method: 'GET',
+  uri :  'http://localhost:3344/new_trip',
 }
 
-const test = () => {
+const data = {
+  timestamp: Date.now(),
+  angle: Math.round(Math.random() * 360),
+  speed: Math.round(Math.random() * 100)
+}
+
+const appendOptions = (id, data) => {
+  return {
+    method: 'POST',
+    uri :  'http://localhost:3344/append',
+    body: {
+      id: id,
+      data: data
+    },
+    json: true
+  }
+}
+
+const test = async () => {
   try {
-    const res = rp(postOptions)
+    const id = await rp(newTripOptions)
+    console.log('id', id)
+    console.log('data', data)
+    const options = appendOptions(id, data)
+    console.log('options', options)
+    const res = await rp(options)
     if (res) console.log('succesful put', res.body)
   } catch (err) {
     console.log('error in post request', err)

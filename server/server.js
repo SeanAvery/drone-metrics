@@ -10,15 +10,28 @@ const app = express()
 app.use(bodyParser.json())
 
 /*
+  returns:
+    id: [32 byte hex string]
+*/
+app.get('/new_trip', async(req, res) => {
+  const id = await tripID()
+  console.log('id', id)
+  res.send(id)
+  res.end()
+})
+
+/*
   params: body [json]
     tripID: [32 bytes]
     data: [json]
       timeStamp: [unix timestamp number]
 */
+
 app.post('/append', async (req, res) => {
-  console.log('received data', req.body)
-  await append()
-  res.end('yooo, it worked')
+  await append(req.body.id, req.body.data)
+  const data = await getData(req.body.id)
+  res.send(data)
+  res.end()
 })
 
 /*
@@ -34,9 +47,14 @@ const append = (key, value) => {
   return new Promise((res, rej) => {
     db.put(key, value, (err) => {
       if (err) rej(err)
+      console.log(2)
       res(true)
     })
   })
+}
+
+const getData = (key) => {
+  return new Promise()
 }
 
 /*
@@ -46,10 +64,12 @@ const append = (key, value) => {
 import crypto from 'crypto'
 
 const tripID = () => {
-  crypto.randomBytes(32, (err, buf) => {
-    if (err) throw err
-    console.log('buf', buf.toString('hex'))
-    return but.toString('hex')
+  return new Promise((res, rej) => {
+    crypto.randomBytes(32, (err, buf) => {
+      if (err) rej(err)
+      console.log('buf', buf.toString('hex'))
+      res(buf.toString('hex'))
+    })
   })
 }
 
