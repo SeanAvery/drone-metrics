@@ -4,3 +4,4 @@ server/package-lock.json
 droneIOS/droneIOS.xcodeproj/
 droneIOS/droneIOS/Assets.xcassets/
 droneIOS/droneIOS/Base.lproj/
+droneIOS/Pods
