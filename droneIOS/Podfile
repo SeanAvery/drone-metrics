@@ -6,5 +6,5 @@ target 'droneIOS' do
   use_frameworks!
 
   # Pods for droneIOS
-  pod 'DJI-SDK-iOS '
+  pod 'DJI-SDK-iOS'
 end
