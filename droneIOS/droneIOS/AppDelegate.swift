@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  droneIOS
-//
-//  Created by Sean Pollock on 3/13/18.
-//  Copyright © 2018 Sean Pollock. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -43,4 +35,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

@@ -2,3 +2,5 @@ server/node_modules
 server/data
 server/package-lock.json
 droneIOS/droneIOS.xcodeproj/
+droneIOS/droneIOS/Assets.xcassets/
+droneIOS/droneIOS/Base.lproj/
