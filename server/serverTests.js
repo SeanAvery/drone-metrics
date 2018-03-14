@@ -26,12 +26,9 @@ const appendOptions = (id, data) => {
 const test = async () => {
   try {
     const id = await rp(newTripOptions)
-    console.log('id', id)
-    console.log('data', data)
     const options = appendOptions(id, data)
-    console.log('options', options)
     const res = await rp(options)
-    if (res) console.log('succesful put', res.body)
+    if (res) console.log('succesful put', res)
   } catch (err) {
     console.log('error in post request', err)
   }
