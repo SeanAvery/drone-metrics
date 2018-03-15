@@ -34,12 +34,20 @@ class ViewController: UIViewController {
         self.view.addSubview(djiButton)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        guard let connectedKey = DJIProductKey(param: DJIParamConnection) else {
+            NSLog("error creating connectedKey");
+            return;
+        }
+        print(connectedKey)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
+
     @objc func onClick(sender: UIButton!) {
         print("yoo made it here")
     }
@@ -68,4 +76,3 @@ class ViewController: UIViewController {
 //    }
 
 }
-
