@@ -35,11 +35,20 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        print("im hereree")
         guard let connectedKey = DJIProductKey(param: DJIParamConnection) else {
             NSLog("error creating connectedKey");
             return;
         }
         print(connectedKey)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DJISDKManager.keyManager()?.startListeningForChanges(on: connectedKey, withListener: self, andUpdate: { (oldValue: DJIKeyedValue?, newValue : DJIKeyedValue?) in
+                if newValue != nil {
+                    print("product is connected!")
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
