@@ -78,6 +78,17 @@ const tripID = () => {
 }
 
 
+/*
+  VIDEO PROCESSOR
+*/
+
+const dataPath = './server/data/video'
+
+import FFMPEG from 'fluent-ffmpeg'
+const command = FFMPEG()
+
+console.log('command', command)
+
 // start server
 app.listen(serverPort, () => {
   console.log(`server is listening on port ${serverPort}`)
