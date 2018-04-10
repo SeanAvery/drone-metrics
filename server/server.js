@@ -82,12 +82,17 @@ const tripID = () => {
   VIDEO PROCESSOR
 */
 
+import FFMPEG from 'fluent-ffmpeg'
+import fs from 'fs'
+
 const dataPath = './server/data/video'
 
-import FFMPEG from 'fluent-ffmpeg'
 const command = FFMPEG()
 
-console.log('command', command)
+const readVideo =  async (tripID) => {
+  const readStream = ffmpeg(fs.createReadStream(`./data/videos/${tripID}.mp4`))
+}
+
 
 // start server
 app.listen(serverPort, () => {
